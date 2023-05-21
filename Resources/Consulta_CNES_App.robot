@@ -11,12 +11,9 @@ Resource  ../Resources/PO/Pagina_Impressão.robot
 *** Keywords ***
 
 Pesquisa Estabelecimentos de Saúde
-    Pagina_Consulta.Carrega Página
-    Pagina_Consulta.Verifica Carregamento
-    Pagina_Consulta.Seleciona Estado
-    Pagina_Consulta.Seleciona Município
-    Pagina_Consulta.Pesquisa
-    Pagina_Consulta.Verifica Carregamento Dos Resultados
-
-
-
+    Carrega Página
+    Verifica Carregamento
+    Seleciona Estado
+    Seleciona Município
+    Pesquisa
+    Verifica Carregamento Dos Resultados
