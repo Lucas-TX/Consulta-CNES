@@ -1,0 +1,6 @@
+ID:		1001				Objetivo: Página de consulta deve estar carregada
+Feature:	Carregamento			Passos:
+Tipo:		Smoke					Abrir browser
+							Navegar "https://cnes.datasus.gov.br/pages/estabelecimentos/consulta.jsp"
+
+

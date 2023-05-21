@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.1 on win32)" generated="20230520 19:22:27.781" rpa="false" schemaversion="3">
+<suite id="s1" name="Consulta CNES" source="C:\Users\lucas\Documents\Repositórios\CNES\Tests\Consulta_CNES.robot">
+<test id="s1-t1" name="Deve ser capaz de carregar a página de consulta" line="9">
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>.2s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20230520 19:22:27.977" endtime="20230520 19:22:27.977"/>
+</kw>
+<kw name="Set Selenium Timeout" library="SeleniumLibrary">
+<arg>10s</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" starttime="20230520 19:22:27.978" endtime="20230520 19:22:27.978"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Starting test case</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230520 19:22:27.978" level="INFO">Starting test case</msg>
+<status status="PASS" starttime="20230520 19:22:27.978" endtime="20230520 19:22:27.978"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://cnes.datasus.gov.br/pages/estabelecimentos/consulta.jsp</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230520 19:22:27.979" level="INFO">Opening browser 'chrome' to base url 'https://cnes.datasus.gov.br/pages/estabelecimentos/consulta.jsp'.</msg>
+<status status="PASS" starttime="20230520 19:22:27.979" endtime="20230520 19:22:30.360"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230520 19:22:30.361" endtime="20230520 19:22:30.695"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>CONSULTA ESTABELECIMENTO - IDENTIFICAÇÃO</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230520 19:22:30.696" endtime="20230520 19:22:30.912"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>xpath=/html/body/div[2]/main/div/div[2]/div/form[1]/div[2]/div[1]/div/select</arg>
+<arg>41</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20230520 19:22:30.914" level="INFO">Selecting options from selection list 'xpath=/html/body/div[2]/main/div/div[2]/div/form[1]/div[2]/div[1]/div/select' by value 41.</msg>
+<status status="PASS" starttime="20230520 19:22:30.913" endtime="20230520 19:22:32.632"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230520 19:22:35.633" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230520 19:22:32.632" endtime="20230520 19:22:35.633"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230520 19:22:35.633" endtime="20230520 19:22:37.905"/>
+</kw>
+<doc>Teste de carregamento da página inicial para consulta dos estabelecimentos</doc>
+<tag>1001</tag>
+<tag>Carregamento</tag>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20230520 19:22:27.976" endtime="20230520 19:22:37.908"/>
+</test>
+<doc>Talk about what this suite of tests does</doc>
+<status status="PASS" starttime="20230520 19:22:27.782" endtime="20230520 19:22:37.912"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">1001</stat>
+<stat pass="1" fail="0" skip="0">Carregamento</stat>
+<stat pass="1" fail="0" skip="0">Smoke</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Consulta CNES">Consulta CNES</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
