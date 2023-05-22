@@ -56,30 +56,24 @@ Deve ser capaz de ler e armazenar
     # /html/body/div[2]/main/div/div[2]/div/div[3]/table/tbody/tr[1] -> Seletor 1° linha
     # /html/body/div[2]/main/div/div[2]/div/div[3]/table/tbody/tr[2] -> Seletor 2° linha
 
-    # Clicando em DETALHES
-    click link  xpath=/html/body/div[2]/main/div/div[2]/div/div[3]/table/tbody/tr[1]/td[8]/a
+Deve ser capaz de visualizar a ficha do estabelecimento
+    [Documentation]             Teste de carregamento da página inicial para consulta dos estabelecimentos
+    [Tags]                      1003    Smoke   Carregamento
 
-    # Verifica se a janela com a ficha do estabelecimento foi carregada
-    wait until page contains  Identificação
+    Consulta_App.Abre Ficha do estabelecimento
 
-    # Abre ficha do estabelecimento
-    click element  xpath=//*[@id="estabContent"]/header/nav/div/a/span
+Deve ser capaz de imprimir a ficha completa do estabelecimento
+    [Documentation]             Teste de carregamento da página inicial para consulta dos estabelecimentos
+    [Tags]                      1004    Smoke   Carregamento
 
-    # Verifica se a ficha do estabelecimento está aberta
-    wait until page contains  Ficha do Estabelecimento
+    Consulta_App.Imprime ficha completa
 
-    # Seleciona ficha completa
-    select checkbox  xpath=//*[@id="todos"]
 
-    # Imprime ficha do estabelecimento
-    click button  xpath=//*[@id="informeModal"]/div/div/div/div[2]/button[1]
+
 
     # TODO: Verifica se o arquivo foi baixado
     # TODO: Renomear arquivo
     # TODO: Mover arquivo para pasta de interesse
-    # Fecha ficha do estabelecimento
-    click button  xpath=//*[@id="informeModal"]/div/div/div/div[2]/button[2]
 
-    # TODO: Verifica se a ficha do estabelecimento foi fechada
     sleep                       3s
 

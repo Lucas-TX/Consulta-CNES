@@ -11,24 +11,24 @@ ${BOTAO_MAIS_DETALHES}                  xpath=/html/body/div[2]/main/div/div[2]/
 *** Keywords ***
 # TODO: Por que o pychram não está identificando aS variáveis Globais do Consulta_CNES.robot
 
-Carrega Página
+Carrega página
     [Arguments]     ${URL}
     go to           ${URL}
 
-Verifica Carregamento
+Verifica carregamento
     wait until page contains            CONSULTA ESTABELECIMENTO - IDENTIFICAÇÃO
 
-Seleciona Estado
+Seleciona estado
     [Arguments]     ${ESTADO}
     select from list by label           ${CHECKBOX_ESTADO}    ${ESTADO}
 
-Seleciona Município
+Seleciona município
     [Arguments]     ${MUNICIPIO}
     select from list by label           ${CHECKBOX_MUNICIPIO}     ${MUNICIPIO}
 
 Pesquisa
     click button                        ${BOTAO_PESQUISAR}
 
-Verifica Carregamento Dos Resultados
+Verifica carregamento dos resultados
     wait until page contains element    ${BOTAO_MAIS_DETALHES}
 

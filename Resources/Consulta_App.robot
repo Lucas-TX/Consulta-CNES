@@ -12,9 +12,19 @@ Resource  ../Resources/PO/Pagina_Impressão.robot
 
 Pesquisa Estabelecimentos de Saúde
     [Arguments]                         ${URL}  ${ESTADO}   ${MUNICIPIO}
-    Carrega Página                      ${URL}
-    Verifica Carregamento
-    Seleciona Estado                    ${ESTADO}
-    Seleciona Município                 ${MUNICIPIO}
+    Carrega página                      ${URL}
+    Verifica carregamento
+    Seleciona estado                    ${ESTADO}
+    Seleciona município                 ${MUNICIPIO}
     Pesquisa
-    Verifica Carregamento Dos Resultados
+    Verifica carregamento dos resultados
+
+Abre ficha do estabelecimento
+    Abre Detalhes
+    Verifica abertura da página de identificação
+    Abre ficha para impressão
+    Verifica carregamento da ficha do estabelecimento
+
+Imprime ficha completa
+    Seleciona ficha completa
+    Imprime ficha do estabelecimento
