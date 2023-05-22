@@ -11,7 +11,8 @@ Resource  ../Resources/PO/Pagina_Impressão.robot
 *** Keywords ***
 
 Pesquisa Estabelecimentos de Saúde
-    Carrega Página
+    [Arguments]                         ${URL}
+    Carrega Página                      ${URL}
     Verifica Carregamento
     Seleciona Estado
     Seleciona Município
