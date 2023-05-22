@@ -11,10 +11,10 @@ Resource  ../Resources/PO/Pagina_Impressão.robot
 *** Keywords ***
 
 Pesquisa Estabelecimentos de Saúde
-    [Arguments]                         ${URL}
+    [Arguments]                         ${URL}  ${ESTADO}   ${MUNICIPIO}
     Carrega Página                      ${URL}
     Verifica Carregamento
-    Seleciona Estado
-    Seleciona Município
+    Seleciona Estado                    ${ESTADO}
+    Seleciona Município                 ${MUNICIPIO}
     Pesquisa
     Verifica Carregamento Dos Resultados

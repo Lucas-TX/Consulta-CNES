@@ -5,7 +5,7 @@
 
 *** Settings ***
 Documentation       Essa suite de testes consulta e extrai dados dos estabelecimentos de saúde de um dado município
-Resource            ../Resources/Consulta_CNES_App.robot
+Resource            ../Resources/Consulta_App.robot
 Resource            ../Resources/Comum.robot
 Suite Setup         Comum.Inicia Teste Web
 Suite Teardown      Comum.Fecha browser
@@ -28,11 +28,14 @@ ${ATENDE_SUS}               null
 
 *** Test Cases ***
 Deve ser capaz de carregar os estabelecimentos presentes na localidade
-    [Documentation]             Teste de carregamento da página inicial para consulta dos estabelecimentos
+    [Documentation]             Teste de carregamento dos resultado da busca dos estabelecimentos de saúde
     [Tags]                      1001    Smoke   Carregamento
 
-    Consulta_CNES_App.Pesquisa Estabelecimentos de Saúde
+    Consulta_App.Pesquisa Estabelecimentos de Saúde    ${URL}   ${ESTADO}   ${MUNICIPIO}
 
+Deve ser capaz de ler e armazenar
+    [Documentation]             Teste de carregamento da página inicial para consulta dos estabelecimentos
+    [Tags]                      1002    Smoke   Carregamento
 
     # Captura quantidade de páginas lidas
     ${QTD_PAGINAS}   get text  xpath=/html/body/div[2]/main/div/div[2]/div/div[3]/div/div/div/ul/li[10]/a/span
