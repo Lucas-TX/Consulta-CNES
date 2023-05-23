@@ -2,6 +2,14 @@
 # robot -d Results Tests/Consulta_CNES.robot
 
 # TODO: Usar .bat file para executar essa suite de testes
+# TODO: Renomear tags de cada teste
+# TODO: Verificar possibilidade de colocar dados na lista
+# TODO: Fazer loop em cada CNES da página Resultados (10)
+# TODO: Verificar com usar .csv como input
+# TODO: Usar Repeat Keyword para repetir ações
+
+
+
 
 *** Settings ***
 Documentation       Essa suite de testes consulta e extrai dados dos estabelecimentos de saúde de um dado município
@@ -11,13 +19,16 @@ Suite Setup         Comum.Inicia Teste Web
 Suite Teardown      Comum.Fecha browser
 
 
+
+
 *** Variables ***
 ${URL}                      https://cnes.datasus.gov.br/pages/estabelecimentos/consulta.jsp
 ${ESTADO}                   PARANA
 ${MUNICIPIO}                CURITIBA
+${CNES_FILE_NAME}           Número-CNES.pdf
 
-${QTD_PAGINAS}              0  # Armazena a quantidade de páginas disponíveis
 @{DADOS_ESTABELECIMENTO}    VAZIO
+${QTD_PAGINAS}              0  # Armazena a quantidade de páginas disponíveis
 ${UF}                       vazio
 ${CNES}                     VAZIO
 ${NOME_FANTASIA}            VAZIO
@@ -68,12 +79,15 @@ Deve ser capaz de imprimir a ficha completa do estabelecimento
 
     Consulta_App.Imprime ficha completa
 
+Deve ser capaz de salvar arquivo na pasta "Output"
+    [Documentation]             Teste de carregamento da página inicial para consulta dos estabelecimentos
+    [Tags]                      1005    Smoke   Carregamento
+
+    ${CNES_FILE_NAME}           set variable                  123456-CNES.pdf
+    ${username}                 Get Environment Variable      USERNAME
+    ${DOWNLOAD_DIRECTORY}       Catenate                      SEPARATOR=${/}    C:    Users    ${username}    Downloads
 
 
+    Consulta_App.Valida e move arquivo baixado para pasta "Output"     ${DOWNLOAD_DIRECTORY}     ${CNES_FILE_NAME}
 
-    # TODO: Verifica se o arquivo foi baixado
-    # TODO: Renomear arquivo
-    # TODO: Mover arquivo para pasta de interesse
-
-    sleep                       3s
 
