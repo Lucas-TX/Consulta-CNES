@@ -5,6 +5,7 @@ Resource            ../Resources/PO/Pagina_Resultados.robot
 Resource            ../Resources/PO/Pagina_Identificacão.robot
 Resource            ../Resources/PO/Pagina_Impressão.robot
 Resource            ../Resources/OS.robot
+Resource            ../Resources/Leitura_CSV.robot
 
 
 *** Variables ***
@@ -36,3 +37,7 @@ Valida e move arquivo baixado para pasta "Output"
 
     Verifica existência do arquivo baixado          ${DOWNLOAD_DIRECTORY}
     Renomeia e move arquivo para pasta "output"     ${DOWNLOAD_DIRECTORY}   ${CNES_FILE_NAME}
+
+Lê arquivo CSV
+    Leitura arquivo "LOCALIDADES.csv"
+
