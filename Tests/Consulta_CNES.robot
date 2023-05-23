@@ -8,9 +8,6 @@
 # TODO: Verificar com usar .csv como input
 # TODO: Usar Repeat Keyword para repetir ações
 
-
-
-
 *** Settings ***
 Documentation       Essa suite de testes consulta e extrai dados dos estabelecimentos de saúde de um dado município
 Resource            ../Resources/Consulta_App.robot
@@ -19,12 +16,15 @@ Suite Setup         Comum.Inicia Teste Web
 Suite Teardown      Comum.Fecha browser
 
 
+# /html/body/div[2]/main/div/div[2]/div/form[1]/div[2]/div[1]/div/select/option[28]
+# /html/body/div[2]/main/div/div[2]/div/form[1]/div[2]/div[1]/div/select/option[13]
+# /html/body/div[2]/main/div/div[2]/div/form[1]/div[2]/div[1]/div/select/option[2]
 
 
 *** Variables ***
 ${URL}                      https://cnes.datasus.gov.br/pages/estabelecimentos/consulta.jsp
-${ESTADO}                   PARANA
-${MUNICIPIO}                CURITIBA
+${ESTADO}                   UF
+${MUNICIPIO}                MUNICIPIO
 ${CNES_FILE_NAME}           Número-CNES.pdf
 
 @{DADOS_ESTABELECIMENTO}    VAZIO
@@ -38,6 +38,14 @@ ${ATENDE_SUS}               null
 
 
 *** Test Cases ***
+
+Deve ser capaz de ler os dados do ".csv"
+    [Documentation]             Teste de carregamento dos resultado da busca dos estabelecimentos de saúde
+    [Tags]                      1001    Smoke   Carregamento
+
+
+
+
 Deve ser capaz de carregar os estabelecimentos presentes na localidade
     [Documentation]             Teste de carregamento dos resultado da busca dos estabelecimentos de saúde
     [Tags]                      1001    Smoke   Carregamento
@@ -56,8 +64,8 @@ Deve ser capaz de ler e armazenar
     # capturando primeira linha apenas: tr[1]
     # TODO: armazenar dados em um vetor
     # @{dados_estabelecimento}    get text
-    ${UF}                           get text                 xpath=/html/body/div[2]/main/div/div[2]/div/div[3]/table/tbody/tr[1]/td[1]
-    ${MUNICIPIO}                    get text          xpath=/html/body/div[2]/main/div/div[2]/div/div[3]/table/tbody/tr[1]/td[2]
+    @{DADOS_ESTABELECIMENTO[0]}                           get text                 xpath=/html/body/div[2]/main/div/div[2]/div/div[3]/table/tbody/tr[1]/td[1]
+    @{DADOS_ESTABELECIMENTO[0]}                    get text          xpath=/html/body/div[2]/main/div/div[2]/div/div[3]/table/tbody/tr[1]/td[2]
     ${CNES}                         get text               xpath=/html/body/div[2]/main/div/div[2]/div/div[3]/table/tbody/tr[1]/td[3]
     ${NOME_FANTASIA}                get text      xpath=/html/body/div[2]/main/div/div[2]/div/div[3]/table/tbody/tr[1]/td[4]
     ${NATUREZA_JURIDICA}            get text  xpath=/html/body/div[2]/main/div/div[2]/div/div[3]/table/tbody/tr[1]/td[5]
